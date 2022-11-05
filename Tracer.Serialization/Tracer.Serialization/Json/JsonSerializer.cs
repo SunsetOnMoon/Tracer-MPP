@@ -16,5 +16,7 @@ namespace Tracer.Serialization.Json
             System.IO.Stream stream = new System.IO.MemoryStream(byteArray);
             return stream;
         }
+
+        public string Extension { get; } = "Json";
     }
 }

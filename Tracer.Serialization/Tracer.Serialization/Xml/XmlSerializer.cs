@@ -39,5 +39,7 @@ namespace Tracer.Serialization.Xml
                 XmlMethod.AppendChild(xmlMethodElement);
             }
         }
+
+        public string Extension { get; } = "Xml";
     }
 }
