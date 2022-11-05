@@ -25,5 +25,19 @@ namespace Tracer.Serialization.Xml
             xmlDoc.Save(stream);
             return stream;
         }
+
+        static void GetInfo(List<MethodTraceResult> Methods, XmlDocument XmlDoc, XmlElement XmlMethod)
+        {
+            foreach (MethodTraceResult Method in Methods)
+            {
+                XmlElement xmlMethodElement = XmlDoc.CreateElement("method");
+                xmlMethodElement.SetAttribute("name", Method.MethodName);
+                xmlMethodElement.SetAttribute("time", Method.MethodExecuteTime.ToString() + "ms");
+                xmlMethodElement.SetAttribute("class", Method.MethodClassName);
+                if (Method.Methods.Count > 0)
+                    GetInfo(Methods.Methods, XmlDoc, xmlMethodElement);
+                XmlMethod.AppendChild(xmlMethodElement);
+            }
+        }
     }
 }
