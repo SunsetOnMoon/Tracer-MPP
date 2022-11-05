@@ -8,7 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Tracer.Serialization\" />
     <Folder Include="Tracer.Example\" />
   </ItemGroup>
 

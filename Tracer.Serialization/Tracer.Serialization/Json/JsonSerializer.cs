@@ -2,12 +2,13 @@
 using System.Text;
 using Newtonsoft.Json;
 using System.IO;
-using Tracer.Serialization.Abstractions;
+using Tracer.Tracer.Serialization.Abstractions;
 using Tracer.Serialization;
+using Tracer.Tracer.Core;
 
 namespace Tracer.Serialization.Json
 {
-    class JsonSerializer : ISerialization
+    class JsonSerializer : ITraceResultSerializer
     {
         public Stream Serialize(TraceResult TraceResult)
         {

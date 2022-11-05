@@ -1,10 +1,11 @@
 ﻿using System.Xml;
 using System.IO;
-using System.Collections.Generic;
+using Tracer.Tracer.Serialization.Abstractions;
+using Tracer.Tracer.Core;
 
 namespace Tracer.Serialization.Xml
 {
-    class XmlSerializer : ISerialization
+    class XmlSerializer : ITraceResultSerializer
     {
         public Stream Serialize(TraceResult TraceResult)
         {
@@ -32,10 +33,10 @@ namespace Tracer.Serialization.Xml
             {
                 XmlElement xmlMethodElement = XmlDoc.CreateElement("method");
                 xmlMethodElement.SetAttribute("name", Method.MethodName);
-                xmlMethodElement.SetAttribute("time", Method.MethodExecuteTime.ToString() + "ms");
+                xmlMethodElement.SetAttribute("time", Method.MethodExecTime.ToString() + "ms");
                 xmlMethodElement.SetAttribute("class", Method.MethodClassName);
                 if (Method.Methods.Count > 0)
-                    GetInfo(Methods.Methods, XmlDoc, xmlMethodElement);
+                    GetInfo(Method.Methods, XmlDoc, xmlMethodElement);
                 XmlMethod.AppendChild(xmlMethodElement);
             }
         }

@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 using YamlDotNet.Serialization;
 using System.IO;
 using Tracer.Tracer.Serialization.Abstractions;
+using Tracer.Tracer.Core;
 using System.Reflection.Metadata.Ecma335;
 
 namespace Tracer.Serialization.Yaml
 {
-    class YamlSerializer : ISerialization
+    class YamlSerializer : ITraceResultSerializer
     {
         public Stream Serialize(TraceResult TraceResult)
         {
@@ -23,7 +24,7 @@ namespace Tracer.Serialization.Yaml
 
         }
 
-        public string Extebsion { get; } = "Yaml";
+        public string Extension { get; } = "Yaml";
 
     }
 }
