@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -8,9 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Tracer.Core.Tests\" />
     <Folder Include="Tracer.Serialization\" />
     <Folder Include="Tracer.Example\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="xunit" Version="2.4.2" />
   </ItemGroup>
 
 </Project>

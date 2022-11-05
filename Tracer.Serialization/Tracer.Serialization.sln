@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32922.545
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tracer.Serialization", "Tracer.Serialization\Tracer.Serialization.csproj", "{2228313D-807A-43D0-BD25-78D64712F585}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2228313D-807A-43D0-BD25-78D64712F585}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2228313D-807A-43D0-BD25-78D64712F585}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2228313D-807A-43D0-BD25-78D64712F585}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2228313D-807A-43D0-BD25-78D64712F585}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5D227CC6-908D-4D52-A8AC-86A5AC96F195}
+	EndGlobalSection
+EndGlobal
