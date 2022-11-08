@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Tracer.Tracer.Example
+namespace Tracer.Example
 {
     class JsonOutput : IOutput
     {

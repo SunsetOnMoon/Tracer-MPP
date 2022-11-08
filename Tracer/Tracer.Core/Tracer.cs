@@ -2,9 +2,9 @@
 using System.Reflection;
 using System.Diagnostics;
 
-namespace Tracer.Tracer.Core
+namespace Tracer.Core
 {
-    public class Tracer : ITracer
+    public class TracerSevice : ITracer
     {
         private ConcurrentDictionary<int, List<Stopwatch>> _exStack = new ConcurrentDictionary<int,List<Stopwatch>>();
         private TraceResult _traceInfo = new TraceResult();

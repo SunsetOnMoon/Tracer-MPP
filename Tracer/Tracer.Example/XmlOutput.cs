@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 
-namespace Tracer.Tracer.Example
+namespace Tracer.Example
 {
     class XmlOutput : IOutput
     {

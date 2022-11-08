@@ -1,16 +1,15 @@
 ﻿using System.Xml;
 using System.IO;
-using Tracer.Tracer.Serialization.Abstractions;
-using Tracer.Tracer.Core;
+using Tracer.Serialization.Abstractions;
+using Tracer.Core;
 
 namespace Tracer.Serialization.Xml
 {
     class XmlSerializer : ITraceResultSerializer
     {
-        public Stream Serialize(TraceResult TraceResult)
+        public void Serialize(TraceResult TraceResult, Stream stream)
         {
             XmlDocument xmlDoc = new XmlDocument();
-            System.IO.Stream stream = new System.IO.MemoryStream();
             XmlDeclaration xmlDec = xmlDoc.CreateXmlDeclaration("1.0", "utf-8", null);
             xmlDoc.AppendChild(xmlDec);
             XmlElement xmlRoot = xmlDoc.CreateElement("root");
@@ -24,7 +23,6 @@ namespace Tracer.Serialization.Xml
                 xmlRoot.AppendChild(xmlThreadElement);
             }
             xmlDoc.Save(stream);
-            return stream;
         }
 
         static void GetInfo(List<MethodTraceResult> Methods, XmlDocument XmlDoc, XmlElement XmlMethod)
