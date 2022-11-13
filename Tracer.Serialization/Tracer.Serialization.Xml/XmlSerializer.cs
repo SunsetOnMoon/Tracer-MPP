@@ -25,7 +25,7 @@ namespace Tracer.Serialization.Xml
             xmlDoc.Save(stream);
         }
 
-        static void GetInfo(List<MethodTraceResult> Methods, XmlDocument XmlDoc, XmlElement XmlMethod)
+        static void GetInfo(IReadOnlyList<MethodTraceResult> Methods, XmlDocument XmlDoc, XmlElement XmlMethod)
         {
             foreach (MethodTraceResult Method in Methods)
             {

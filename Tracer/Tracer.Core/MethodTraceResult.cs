@@ -2,9 +2,11 @@
 {
     public class MethodTraceResult
     {
+
+        internal List<MethodTraceResult> internalMethods = new List<MethodTraceResult>();     //MethodTraceResult method = new MethodTraceResult();
         public string MethodName;
         public string MethodClassName;
         public long MethodExecTime;
-        public List<MethodTraceResult> Methods = new List<MethodTraceResult>();
+        public IReadOnlyList<MethodTraceResult> Methods => internalMethods.AsReadOnly();
     }
 }

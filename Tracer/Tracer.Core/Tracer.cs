@@ -12,10 +12,10 @@ namespace Tracer.Core
         
         private void Method(int ThreadID, string MethodName, string ClassName)
         {
-            List<MethodTraceResult> _listMethod = new List<MethodTraceResult>();
-            _listMethod = _traceInfo.Threads[ThreadID].Methods;
+            List<MethodTraceResult> _listMethod = new List<MethodTraceResult>(); 
+            _listMethod = _traceInfo.internalThreads[ThreadID].internalMethods;
             for (int i = 1; i < _methodStack[ThreadID]; i++)
-                _listMethod = _listMethod[_listMethod.Count - 1].Methods;
+                _listMethod = _listMethod[_listMethod.Count - 1].internalMethods;
             MethodTraceResult _methodResult = new MethodTraceResult();
             _methodResult.MethodName = MethodName;
             _methodResult.MethodClassName = ClassName;
@@ -33,9 +33,9 @@ namespace Tracer.Core
             ThreadTraceResult currentThread = new ThreadTraceResult();
             int threadID = Thread.CurrentThread.ManagedThreadId;
 
-            if (_traceInfo.Threads.TryAdd(threadID, currentThread))
+            if (_traceInfo.internalThreads.TryAdd(threadID, currentThread))
             {
-                _traceInfo.Threads[threadID].ThreadID = threadID;
+                _traceInfo.internalThreads[threadID].ThreadID = threadID;
                 _methodStack.TryAdd(threadID, 0);
                 _exStack.TryAdd(threadID, new List<Stopwatch>());
             }
@@ -51,9 +51,9 @@ namespace Tracer.Core
             int threadID = Thread.CurrentThread.ManagedThreadId;
             _exStack[threadID][_exStack[threadID].Count - 1].Stop();
             List<MethodTraceResult> ListMethod = new List<MethodTraceResult>();
-            ListMethod = _traceInfo.Threads[threadID].Methods;
+            ListMethod = _traceInfo.internalThreads[threadID].internalMethods;
             for (int i = 1; i < _methodStack[threadID]; i++)
-                ListMethod = ListMethod[ListMethod.Count - 1].Methods;
+                ListMethod = ListMethod[ListMethod.Count - 1].internalMethods;
             ListMethod[ListMethod.Count - 1].MethodExecTime = _exStack[threadID][_exStack[threadID].Count - 1].ElapsedMilliseconds;
             _exStack[threadID].Remove(_exStack[threadID][_exStack[threadID].Count - 1]);
             _methodStack[threadID]--;
